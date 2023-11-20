@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체를 동적으로 생성, 삽입, 삭제</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <p>DOM 트리에 동적으로 객체를 삽입할 수 있다.</p>
+        <p>
+            createElement("태그명"), appendChild("태그객체"),
+            removeChild("태그객체")
+        </p>
+        <p>위 3개의 메소드를 이용해서 새로운 객체를 생성, 삽입, 삭제한다.</p>
+        <a href="javascript:createDIV()">DIV 생성</a>
+    </div>
+</body>
+<script>
+    // Math.floor(Math.random() * n) : 0 ~ n-1 랜덤 값
+
+    // 생성할 때마다 랜덤한 배경색이 출력되고,
+    // 각 DIV 객체 내용에 번호가 붙도록 한다.
+    globalThis.number = 0;
+
+    function createDIV() {
+        const colors = new Array(
+            "yellow",
+            "red",
+            "blue",
+            "green",
+            "skyblue",
+            "orange",
+            "pink"
+        );
+        const i = Math.floor(Math.random() * colors.length)
+        const div = document.createElement("div");
+        div.innerText = `새로 생성된 div${++globalThis.number}입니다.`;
+        div.style.backgroundColor = colors[i];
+
+        document.getElementById("wrap").appendChild(div);
+
+        div.onclick = function () {
+            this.parentElement.removeChild(this);
+        };
+    }
+</script>
+
+</html>

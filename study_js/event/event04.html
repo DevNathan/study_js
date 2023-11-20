@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>키 이벤트</title>
+</head>
+
+<body>
+    <input type="text" name="name" placeholder="이름 입력하세요!" />
+    <p id="name"></p>
+</body>
+<script>
+    const name = document.querySelector("input[name='name']");
+    const p = document.querySelector("#name");
+
+    // 키보드를 누르자마자(keydown) 이벤트를 발생시키면 글자가 입력되기 전에 발생한다.
+    // 키보드를 누르고 땠을 때(keyup) 이벤트를 발생시키면 글자가 입력되고 나서 발생되기 때문에 글자를 잘 가져온다.
+    name.addEventListener('keyup', (e) => {
+        p.innerText = e.target.value;
+    });
+</script>
+
+</html>

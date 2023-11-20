@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>name을 이용한 선택</title>
+</head>
+
+<body>
+    <div>
+        <h1>name 속성을 이용한 선택</h1>
+        <form action="" method="">
+            <div><input type="text" name="id" placeholder="아이디" value="hds1234"></div>
+            <div><input type="text" name="password" placeholder="비밀번호" value="1234"></div>
+            <div>
+                <label>
+                    <input type="checkbox" name="language" value="c"> C언어
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="checkbox" name="language" value="python"> 파이썬
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="checkbox" name="language" value="java"> 자바
+                </label>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    // console.log(document.getElementsByName("id"))
+    // console.log(document.getElementsByName("id")[0].value)
+    // document.getElementsByName("id")[0].getAttribute("value");
+
+    document.getElementsByName("language").forEach(checkbox => checkbox.checked = true);
+</script>
+
+</html>

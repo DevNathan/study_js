@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체크박스 동의</title>
+</head>
+
+<body>
+    <form action="" name="myForm">
+        <div>
+            <label>
+                전체 동의
+                <input type="checkbox" name="all" class="all">
+            </label>
+        </div>
+        <div>
+            <label>
+                서비스 이용약관 동의
+                <input type="checkbox" name="term1" class="term">
+            </label>
+        </div>
+        <div>
+            <label>
+                광고 수신 동의
+                <input type="checkbox" name="term2" class="term">
+            </label>
+        </div>
+        <div>
+            <label>
+                개인 정보 이용약관 동의
+                <input type="checkbox" name="term3" class="term">
+            </label>
+        </div>
+    </form>
+</body>
+<script>
+    // const allCheckbox = document.querySelector('.all');
+    // const termCheckboxes = document.querySelectorAll('.term');
+
+    // allCheckbox.addEventListener('change', function () {
+    //     termCheckboxes.forEach(checkbox => {
+    //         checkbox.checked = allCheckbox.checked;
+    //     });
+    // });
+
+    // termCheckboxes.forEach(checkbox => {
+    //     checkbox.addEventListener('change', function () {
+    //         if (!checkbox.checked) {
+    //             allCheckbox.checked = false;
+    //         } else {
+    //             const allChecked = Array.from(termCheckboxes).every(termCheckbox => termCheckbox.checked);
+    //             allCheckbox.checked = allChecked;
+    //         }
+    //     });
+    // });
+
+    NodeList.prototype.map = Array.prototype.map;
+
+    // 전체 동의를 완성하라.
+    const all = document.querySelector("input.all");
+    const terms = document.querySelectorAll("input.term");
+
+    all.addEventListener("click", () => {
+        terms.forEach((term) => {
+            term.checked = all.checked;
+        });
+    });
+
+    terms.forEach((term) => {
+        term.addEventListener("click", (e) => {
+            all.checked =
+                terms.map((term) => term.checked).filter((checked) => checked)
+                    .length === 3;
+        });
+    });
+
+</script>
+
+</html>

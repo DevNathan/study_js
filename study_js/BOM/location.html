@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        li {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li data-name="naver">네이버</li>
+        <li data-name="banner">매인 배너</li>
+        <li data-name="kakao">카카오</li>
+    </ul>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script>
+    $("li").on("mouseover", (e) => {
+        $(e.target).css("font-weight", "bold");
+    })
+    $("li").on("mouseout", (e) => {
+        $(e.target).css("font-weight", "normal");
+    })
+
+    $("li").on("click", (e) => {
+        switch ($(e.target).data("name")) {
+            case "naver":
+                location.href = "https://www.naver.com";
+                break;
+            case "banner":
+                location.href = "../banner/banner.html";
+                break;
+            case "kakao":
+                location.href = "https://www.kakao.com";
+                break;
+        }
+    });
+</script>
+
+</html>

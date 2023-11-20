@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery 기초</title>
+</head>
+<body>
+  <ul class="car">
+    <li>페라리</li>
+    <li>롤스로이스</li>
+    <li>벤틀리</li>
+  </ul>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script>
+  // closest() : 부모에서 찾기
+  // find() : 자식에서 찾기
+  // prev() : 이전 요소 가지고 오기
+  // next() : 다음 요소 가지고 오기
+  const $list = $("li");
+  const $ul = $("ul");
+  // console.log($list);
+  // // jQuery객체에서 한 개를 가져오기 위해 접근하면 무조건 JS객체로 변한다.
+  // console.log($list[0]);
+  // console.log($($list[0]));
+  // console.log($list.eq(0));
+  
+  // console.log($list.eq(2).prev().text());
+  // $list.eq(0).next().text("람보르기니");
+  // $list.eq(1).closest("ul").attr("class", "super-car");
+
+  // ul 태그의 자식 중에서 벤틀리 가져오기
+  // each()
+  // $ul.find("li").each((i, li) => {
+  //   if($(li).text() === "벤틀리"){
+  //     console.log($(li));
+  //   }
+  // });
+
+  // ul 태그의 자식 중에서 첫 번째 자식 요소 삭제
+  // $ul.find("li").first().remove();
+
+  // ul 태그의 마지막 자식 요소로 벤츠 추가
+  // $ul.append("<li>벤츠</li>");
+
+  // ul 태그의 기존 li를 모두 없애고 람보르기니만 남기기
+  // $ul.html("<li>람보르기니</li>");
+</script>
+</html>

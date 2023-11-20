@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 실습</title>
+    <style>
+        form {
+            width: 200px;
+            border: 1px solid black;
+            display: flex;
+        }
+
+        input {
+            outline: none;
+            border: none;
+        }
+
+        div.mark {
+            background-image: url('close.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            width: 40px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <label>
+            <input maxlength="20" name="password" type="password" placeholder="비밀번호를 입력하세요.">
+        </label>
+        <div class="mark">
+        </div>
+    </form>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script>
+    const $mark = $(".mark");
+    const $password = $("input[name='password']");
+
+    $mark.on("click", (e) => {
+        const isText = $password.attr("type") === "text";
+        $password.attr("type", isText ? "password" : "text");
+        e.target.style.backgroundImage = `url('${isText ? 'close.png' : 'open.png'}')`;
+    });
+</script>
+
+</html>

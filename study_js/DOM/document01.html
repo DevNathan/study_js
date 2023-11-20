@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스 이름을 이용한 선택</title>
+</head>
+<!-- 
+    DOM(Document Object Model) 객체
+
+    HTML 태그들을 하나씩 객체화 한 것.
+    HTML 페이지의 내용과 모양을 제어하기 위해 사용되는 객체이다.
+    HTML 태그 당 DOM 객체가 하나씩 생성된다.
+    HTML 태그의 포함관계에 따라서 부모, 자식, 형제자매 관계로 구성된다.
+ -->
+
+<body>
+    <div>
+        <h1>클래스 이름을 이용한 선택</h1>
+        <ul>
+            <li class="odd item">첫 번째 아이템이에요!</li>
+            <li class="even item">두 번째 아이템이에요!</li>
+            <li class="odd item">세 번째 아이템이에요!</li>
+            <li class="even item">네 번째 아이템이에요!</li>
+            <li class="odd item">다섯 번째 아이템이에요!</li>
+        </ul>
+    </div>
+</body>
+<script>
+    HTMLCollection.prototype.forEach = Array.prototype.forEach;
+
+    const items = document.getElementsByClassName("item");
+    const colors = {
+        'even': 'green',
+        'odd': 'pink'
+    }
+    // 홀수는 핑크색, 짝수는 녹색
+    items.forEach((item) => {
+        item.style.color = (item.classList[0] = colors[item.classList[0]])
+    });
+    // for (let i of items) {
+    //     console.log(i);
+    // }
+</script>
+
+</html>

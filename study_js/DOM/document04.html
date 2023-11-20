@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 선택자를 이용한 선택</title>
+</head>
+
+<body>
+    <div>
+        <h1>CSS 선택자를 이용한 선택</h1>
+        <p>첫 번째 단락이에요!</p>
+        <ul>
+            <li class="odd">치킨</li>
+            <li class="even">집</li>
+            <li class="odd">자동차</li>
+            <li class="even">여자친구</li>
+            <li class="odd">남자친구</li>
+        </ul>
+    </div>
+</body>
+<script>
+    const p = document.querySelector("p");
+    // p.innerText = "<strong>반갑습니다.</strong>";
+    p.innerHTML = "<strong>반갑습니다.</strong>";
+
+    // 홀수의 글자 크기는 22px로, 짝수의 글자 크기는 14px로 변경하고,
+    const list = document.querySelectorAll("li");
+    const font = {
+        'even': '14px',
+        'odd': '22px'
+    }
+
+    list.forEach((li) => {
+        li.style.fontSize = font[li.classList];
+    })
+    // 전체 목록 중에 "친구"가 포함(includes())되어 있다면 글자색을 빨간색으로 변경하기
+    list.forEach((li) => {
+        if (li.innerText.includes("친구")) {
+            li.style.color = "red";
+        }
+    })
+</script>
+
+</html>

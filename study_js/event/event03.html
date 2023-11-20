@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클릭 이벤트</title>
+</head>
+
+<body>
+    <form action="">
+        <label><input type="text" name="id" placeholder="아이디를 입력하세요."></label>
+        <p id="id-result"></p>
+        <label><input type="password" name="pw" placeholder="비밀번호를 입력하세요."></label>
+        <p id="pw-result"></p>
+        <button type="button">완료</button>
+    </form>
+</body>
+<script>
+    // 아이디와 비밀번호 유효성 검사
+    // 빈 값 검사
+    const button = document.querySelector("button[type=button]");
+    const id = document.querySelector("input[name='id']");
+    const pw = document.querySelector("input[name='pw']");
+    const idResult = document.querySelector("#id-result");
+    const pwResult = document.querySelector("#pw-result");
+
+    globalThis.flag = new Array(false, false);
+
+    id.addEventListener("blur", (e) => {
+        const target = e.target;
+
+        if (!target.value) {
+            globalThis.flag[0] = false;
+            idResult.innerText = "아이디를 입력해주세요!";
+            idResult.style.color = "red";
+            target.focus();
+            return;
+        }
+        idResult.innerText = "멋진 아이디네요!";
+        idResult.style.color = "blue";
+        globalThis.flag[0] = true;
+    });
+
+    pw.addEventListener("blur", (e) => {
+        const target = e.target;
+
+        if (!target.value) {
+            globalThis.flag[1] = false;
+            pwResult.innerText = "비밀번호를 입력해주세요!";
+            pwResult.style.color = "red";
+            target.focus();
+            return;
+        }
+        pwResult.innerText = "사용가능한 비밀번호입니다.";
+        pwResult.style.color = "blue";
+        globalThis.flag[1] = true;
+    });
+
+    button.addEventListener("click", () => {
+        if (globalThis.flag.filter((check) => check).length != 2) {
+            alert("정보를 정확히 입력해주세요.");
+            return;
+        }
+    })
+</script>
+
+</html>

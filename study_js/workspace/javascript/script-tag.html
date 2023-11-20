@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스크립트 태그</title>
+</head>
+<body>
+  <h2>마우스를 올려보세요 😎</h2>
+  <hr>
+  <img src="icon2.png" onmouseover="over(this)" onmouseout="out(this)" width="200">
+</body>
+<script>
+  function over(obj){
+    obj.width = 150;
+  }
+
+  function out(obj){
+    obj.width = 200;
+  }
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클릭 이벤트</title>
+</head>
+
+<body>
+    <form action="">
+        <label><input type="text" name="id" placeholder="아이디를 입력하세요."></label>
+        <p id="id-result"></p>
+        <label><input type="password" name="pw" placeholder="비밀번호를 입력하세요."></label>
+        <p id="pw-result"></p>
+        <button type="button">완료</button>
+    </form>
+</body>
+<script>
+    const button = document.querySelector("button");
+    const idResult = document.getElementById("id-result");
+    const pwResult = document.getElementById("pw-result");
+    const idInput = document.querySelector('input[name="id"]');
+    const pwInput = document.querySelector('input[name="pw"]');
+
+    button.addEventListener("click", function () {
+        if (idInput.value === "") {
+            idResult.textContent = "아이디를 입력해주세요.";
+            idResult.style.color = "white";
+            idResult.style.backgroundColor = "red";
+        } else {
+            idResult.textContent = "사용 가능한 아이디입니다.";
+            idResult.style.color = "white";
+            idResult.style.backgroundColor = "green";
+        }
+
+        if (pwInput.value === "") {
+            pwResult.textContent = "비밀번호를 입력해주세요.";
+            pwResult.style.color = "white";
+            pwResult.style.backgroundColor = "red";
+        } else {
+            pwResult.textContent = "";
+            pwResult.style.backgroundColor = "none";
+        }
+    });
+</script>
+
+</html>
