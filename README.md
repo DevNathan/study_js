@@ -6,7 +6,15 @@
   	> 1-1 [웹 페이지에서 자바스크립트의 역할](#1-1-웹-페이지에서-자바스크립트의-역할)<br>
   	> 1-2 [자바스크립트를 작성할 수 있는 위치](#1-2-자바스크립트를-작성할-수-있는-위치)
 2. [자바스크립트 문법](#2-자바스크립트-문법)
-	> 2-1 [데이터 타입과 변수](#2-1-데이터-타입과-변수) 
+	> 2-1 [데이터 타입과 변수](#2-1-데이터-타입과-변수)<br>
+	> 2-2 [함수](#2-2-함수)<br>
+	> 2-3 [함수 선언](#2-3-함수-선언)<br>
+ 	> 2-4 [전역 함수](#2-4-전역-함수)<br>
+  	> 2-5 [객체](#2-5-객체)<br>
+ 	> 2-6 [window 객체](#2-6-window-객체)
+ 	> 2-7 [location 객체](#2-7-location-객체)
+ 	> 2-8 [history 객체](#2-8-history-객체)
+3. [jQuery](#3-jquery)
 
 ### 목차
 
@@ -100,7 +108,7 @@
 	인자(파라미터, parameter, variable): 매개변수(선언부)
 	인수(아규먼트, argument, value): 매개변수에 들어가는 값(사용부, 호출부)
 
-### 2-3 함수 선언
+### 2-3 함수 선언 
 	function 식별자(arg1, arg2, arg3, ...) {
 	    실행할 문장;
 	    return 리턴 값;
@@ -111,7 +119,7 @@
 	- parameter: 여러 개 있을 때에는 콤마로 분리하고 자료형을 따로 작성하지 않는다. 생략도 가능하다
 	- return: 생략이 가능하다. 리턴타입은 따로 작성하지 않고, return을 만나면 함수는 즉시 종료된다
 
-### 2-4
+### 2-4 전역 함수
 - eval()
   
 	    문자열 형태의 수식을 전달받아서 수식을 계산한다.
@@ -131,3 +139,73 @@
   
 	    값이 NaN이 아니면 true
 	    NaN이면 false
+
+### 2-5 객체
+	객체의 고유한 속성을 프로퍼티(property)라고 부르며, 여러 프로퍼티와 값의 쌍으로 표현된다.
+	객체가 호출하는 함수는 메소드라고 부른다.
+
+	account = {name: '홍길동', number: '010-1234-5678', password: '1234'}
+	account.name
+	account.number
+	account.password
+	account["name"]
+	account["number"]
+	account["password"]
+
+	account.age = 20
+
+	account.deposit = function() {...}
+
+	account.deposit();
+
+![245670407-05b46c93-34f2-4044-809e-98c5e70cc422](https://github.com/DevNathan/study_js/assets/142222091/8576eaa9-dc27-4d1c-9768-a4687e66f038)
+![245670400-a9b4e8fb-4afe-4823-8cb5-491565b07d97](https://github.com/DevNathan/study_js/assets/142222091/77c5fb7e-5384-49a5-a305-829f2b9a3e47)
+![245670404-6cf509ac-ac37-471b-a45d-e1d0aa8b08db](https://github.com/DevNathan/study_js/assets/142222091/2e936c46-f957-46e7-924e-12639759c300)
+
+### 2-6 window 객체
+	웹 브라우저의 창(window)을 나타내는 객체로, 대부분의 웹 브라우저에서 지원한다.
+	자바스크립트의 모든 객체, 전역함수, 전역변수들은 자동으로 window 객체의 프로퍼티가 된다.
+
+### 2-7 location 객체
+	location 객체는 현재 브라우저에 표시된 HTML 문서의 주소(URL)를 얻거나,
+	브라우저에 새 문서를 불러올 때 사용할 수 있다.
+	location 객체의 프로퍼티와 메소드를 이용하면,
+	현재 문서의 URL 주소를 다양하게 해석하여 처리할 수 있게 된다.
+
+	- href: 페이지의 URL 전체 정보 반환, URL을 지정하여 페이지 이동도 가능.
+	- pathname: URL 중 경로 부분의 정보를 반환한다.
+	- port: 포트번호를 반환한다.
+	- reload(): 새로 고침
+	- assign(): 현재 URL을, 지정한 URL로 바꿔서 페이지 이동
+	- replace(): 현재 URL을, 지정한 URL로 바꿔서 페이지 이동, 이전 페이지로 돌아갈 수 없게 한다.
+
+### 2-8 history 객체
+	history 객체는 브라우저의 히스토리 정보를 문서와 문서상태 목록으로 저장하는 객체이다.
+
+	- go(n): n번째 페이지로 이동(0부터 시작)
+		    1. n이 양수일 때 : 앞으로
+		    2. n이 음수일 때 : 뒤로
+		    3. n이 0일 때 : 새로고침
+	
+	- back(): 뒤로 한 칸 이동
+	- forward(): 앞으로 한 칸 이동
+
+## 3. jQuery
+	jQuery는 과거 시절 JS의 문법이 불편하던 시절에 만들어진 언어이며 
+ 	기존의 자바스크립트 문법을 편하게 만들어줘서 
+  	오늘날에도 많은 웹사이트에서 사용되어지고 있다.
+  	하지만 jQuery를 실행시킨 후에 j쿼리 문법을 쓸 수 있기 때문에 성능적인 면에선 
+   	순수 JS가 좋을 밖에 없으며 오늘날의 JS문법은 상당히 개선되었으므로 
+    	성능 하락을 야기하게 되는 j쿼리는 더이상 쓰지 않는 추세이다.
+### 3-1 jQuery 기본 문법
+	$("선택자")
+
+### 3-2 값 가져오기
+	$("선택자").val(): 입력할 값을 가져올 때
+	$("선택자").text(): 미리 작성된 값을 가져올 때
+
+### 3-3 반복문
+	$.each(iterator, function(index, item){});
+	$.each(iterator, (index, item) => {});
+	iterator.each(function(index, item{}));
+	iterator.each((index, item) => {});
